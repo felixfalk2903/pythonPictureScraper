@@ -11,13 +11,13 @@ img_width =512
 img_height = 512
 
 while True:
+    time.sleep(1)
     img_req = requests.get(port_address)
     img_arr = np.array(bytearray(img_req.content), dtype=np.uint8)  
     cap = cv2.VideoCapture('http://192.168.0.173:4747/video?640x480')
 
     img = cv2.imdecode(img_arr, -1)
     
-    cv2.imshow('Mobile_cam', img)
 
     frame = cv2.resize(img,(img_width,img_height))
     timestr = str(time.time())
